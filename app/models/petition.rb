@@ -11,8 +11,4 @@ class Petition < ActiveRecord::Base
   scope :sort_by_deadline, -> {
     order(:deadline)
   }
-
-  def self.search
-
-  end
 end

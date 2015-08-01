@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :petitions, only: [:index, :show, :create]
       resources :bloods, only: [:index, :show]
-      resources :institutions, only: [:index, :show]
+      resources :institutions, only: [:index, :show, :create]
     end
   end
 end
