@@ -9,7 +9,8 @@ module Api
       end
 
       def index
-        petitions = Petition.all.page(params[:page]).per(params[:per_page] || PER_PAGE_DEFAULT)
+        petitions = Petition.not_expired.sort_by_deadline.page(params[:page])
+                                                         .per(params[:per_page] || PER_PAGE_DEFAULT)
         render json: petitions,
                meta: pagination(petitions, params[:per_page] || PER_PAGE_DEFAULT)
       end
@@ -27,7 +28,7 @@ module Api
       private
 
       def petition_params
-        params.require(:petition).permit(:amount, :blood_id)
+        params.require(:petition).permit(:amount, :blood_id, :deadline, :institution_id)
       end
     end
   end

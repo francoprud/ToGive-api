@@ -1,13 +1,6 @@
 class PetitionSerializer < ActiveModel::Serializer
-  attributes :id, :amount, :institution, :short_description
+  attributes :id, :amount, :deadline
 
   has_one :blood
-
-  def institution
-    "Boston Children's Hospital"
-  end
-
-  def short_description
-    'A very short description.'
-  end
+  has_one :institution
 end
