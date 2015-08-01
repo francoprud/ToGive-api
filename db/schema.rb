@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150801152441) do
   enable_extension "plpgsql"
 
   create_table "bloods", force: :cascade do |t|
-    t.string   "type"
+    t.string   "btype"
     t.string   "factor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150801152441) do
 
   create_table "petitions", force: :cascade do |t|
     t.integer  "blood_id"
+    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
