@@ -9,7 +9,6 @@ module Api
       end
 
       def index
-        binding.pry
         petitions = Petition.all.page(params[:page]).per(params[:per_page] || PER_PAGE_DEFAULT)
         render json: petitions,
                meta: pagination(petitions, params[:per_page] || PER_PAGE_DEFAULT)
