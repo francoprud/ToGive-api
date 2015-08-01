@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def pagination(records, per_page)
-    { pagination: { per_page: params[:per_page],
+    { pagination: { per_page: per_page,
                   total_pages: records.total_pages,
                   total_objects: records.total_count } }
   end
