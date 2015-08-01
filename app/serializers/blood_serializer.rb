@@ -1,5 +1,5 @@
 class BloodSerializer < ActiveModel::Serializer
-  attributes :type, :factor
+  attributes :id, :type, :factor
 
   def type
     object.btype
