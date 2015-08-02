@@ -25,6 +25,16 @@ module Api
         end
       end
 
+      def update
+        petition = Petition.find(params[:id])
+
+        if petition.update(petition_params)
+          render json: petition, status: 201, location: [:api, :v1, petition]
+        else
+          render json: { errors: petition.errors }, status: 400
+        end
+      end
+
       def confirm_donation
         petition = Petition.find(params[:petition_id])
 

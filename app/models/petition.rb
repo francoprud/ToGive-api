@@ -12,10 +12,16 @@ class Petition < ActiveRecord::Base
     order(:deadline)
   }
 
+  scope :not_completed, -> {
+    where("amount > donations")
+  }
+
   def self.search(params = {})
     petitions = params[:institution_id].present? ? Petition.where(institution_id: params[:institution_id]) : Petition.all
     petitions = petitions.where(blood_id: params[:blood_id]) if params[:blood_id].present?
-    petitions.not_expired.sort_by_deadline
+    petitions = petitions.not_expired if params[:not_expired].present?
+    petitions = petitions.not_completed if params[:not_completed].present?
+    petitions.sort_by_deadline
   end
 
   def donate!
