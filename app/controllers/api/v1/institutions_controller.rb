@@ -24,7 +24,6 @@ module Api
 
       def institution_params
         params.require(:institution).permit(:name,
-                                            :short_description,
                                             :description, :lng, :lat, :address)
       end
     end
