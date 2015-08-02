@@ -30,6 +30,11 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers', br
 # Pagination
 gem 'kaminari'
 
+# Auth gem
+gem 'devise'
+
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

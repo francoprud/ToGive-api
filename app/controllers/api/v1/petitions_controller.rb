@@ -5,7 +5,8 @@ module Api
       PER_PAGE_DEFAULT = 10
 
       def show
-        render json: Petition.find(params[:id])
+        petition = Petition.find_by(id: params[:id])
+        render json: petition.present? ? petition : {}
       end
 
       def index
@@ -16,22 +17,41 @@ module Api
       end
 
       def create
-        petition = Petition.new(petition_params)
+        petition = current_institution.petitions.build(petition_params)
 
-        if petition.save
-          render json: petition, status: 201, location: [:api, :v1, petition]
+        if petition.present?
+          if petition.save
+            render json: petition, status: 201, location: [:api, :v1, petition]
+          else
+            render json: { errors: petition.errors }, status: 400
+          end
         else
-          render json: { errors: petition.errors }, status: 400
+          render json: { errors: 'the institution do not belong this petition'}, status: 400
         end
       end
 
       def update
-        petition = Petition.find(params[:id])
+        petition = current_institution.petitions.find(params[:id])
 
-        if petition.update(petition_params)
-          render json: petition, status: 201, location: [:api, :v1, petition]
+        if petition.present?
+          if petition.update(petition_params)
+            render json: petition, status: 201, location: [:api, :v1, petition]
+          else
+            render json: { errors: petition.errors }, status: 400
+          end
         else
-          render json: { errors: petition.errors }, status: 400
+          render json: { errors: 'the instituion do no belong this petition'}, status: 400
+        end
+      end
+
+      def destroy
+        petition = current_institution.petitions.find(params[:id])
+
+        if petition.present?
+          petition.destroy
+          head 204
+        else
+          render json: { errrors: 'the instituion do no belong this petition' }
         end
       end
 
@@ -48,7 +68,7 @@ module Api
       private
 
       def petition_params
-        params.require(:petition).permit(:amount, :blood_id, :deadline, :institution_id, :description)
+        params.require(:petition).permit(:amount, :blood_id, :deadline, :description)
       end
     end
   end

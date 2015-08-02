@@ -3,7 +3,8 @@ module Api
     class InstitutionsController < ApplicationController
 
       def show
-        render json: Institution.find(params[:id])
+        institution = Institution.find_by(id: params[:id])
+        render json: institution.present? ? institution : {}
       end
 
       def index
@@ -23,7 +24,7 @@ module Api
       private
 
       def institution_params
-        params.require(:institution).permit(:name, :lng, :lat, :address, :email)
+        params.require(:institution).permit(:name, :lng, :lat, :address, :email, :password, :password_confirmation)
       end
     end
   end
