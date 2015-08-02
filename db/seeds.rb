@@ -14,10 +14,12 @@ Blood.create(btype: 'AB', factor: '-')
 Blood.create(btype: 'O', factor: '+')
 Blood.create(btype: 'O', factor: '-')
 
-Institution.create(name: 'Hospital de Pedro1', email: 'pedro1@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -32.58121, lng: -55.42433)
-Institution.create(name: 'Hospital de Pedro2', email: 'pedro2@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -34.58121, lng: -58.42433)
-Institution.create(name: 'Hospital de Pedro3', email: 'pedro3@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -33.58121, lng: -56.42433)
-Institution.create(name: 'Hospital de Pedro4', email: 'pedro4@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -34.58121, lng: -57.42433)
-Institution.create(name: 'Hospital de Pedro5', email: 'pedro5@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -36.58121, lng: -54.42433)
-
 23.times { Petition.create(blood: Blood.all[rand(7)+1], amount: rand(20)+1, institution: Institution.all[rand(4)+1], deadline: DateTime.now + rand(10), description: 'Increíble donación para saber a donde vas ping mostrar endpoint.') }
+
+Institution.create(name: "Hospital Alemán", lat: -34.580395, lng: -58.434019, email: "aleman@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Santos Dumont 1243, Buenos Aires, Argentina")
+Institution.create(name: "Hospital Jardín de Niños", lat: -34.589617, lng: -58.415479, email: "ninos@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Díaz Petion 2243, Buenos Aires, Argentina")
+Institution.create(name: "Centro de Donación", lat: -32.589617, lng: -58.415479, email: "ninos2@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Díaz Aguero 2243, Buenos Aires, Argentina")
+Institution.create(name: "Centro de Petición", lat: -32.589617, lng: -58.415479, email: "ninos2@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Díaz Aguero 2243, Buenos Aires, Argentina")
+Institution.create(name: "Hospital de Donación", lat: -32.589617, lng: -58.415479, email: "ninos2@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Díaz Aguero 2243, Buenos Aires, Argentina")
+Institution.create(name: "Centro de Donación", lat: -32.589617, lng: -58.415479, email: "ninos2@gmail.com", password: "123123123", password_confirmation: "123123123", address: "Díaz Aguero 2243, Buenos Aires, Argentina")
+

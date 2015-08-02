@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: ToGiveApi_production
-  username: ToGiveApi
-  password: <%= ENV['TOGIVEAPI_DATABASE_PASSWORD'] %>
