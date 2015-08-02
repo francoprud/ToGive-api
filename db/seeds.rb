@@ -14,10 +14,10 @@ Blood.create(btype: 'AB', factor: '-')
 Blood.create(btype: 'O', factor: '+')
 Blood.create(btype: 'O', factor: '-')
 
-Institution.create(name: "Hospital para niños v1", short_description: "A short description", description: "A very loooooooong description.", lat: -32.1231, lng: -24.2312, address: "Avellaneda 9191, Buenos Aires, Argentina")
-Institution.create(name: "Hospital para niños v2", short_description: "A short description", description: "A very loooooooong description.", lat: -32.1231, lng: -24.2312, address: "Avellaneda 9191, Buenos Aires, Argentina")
-Institution.create(name: "Hospital para niños v3", short_description: "A short description", description: "A very loooooooong description.", lat: -32.1231, lng: -24.2312, address: "Avellaneda 9191, Buenos Aires, Argentina")
-Institution.create(name: "Hospital para niños v4", short_description: "A short description", description: "A very loooooooong description.", lat: -32.1231, lng: -24.2312, address: "Avellaneda 9191, Buenos Aires, Argentina")
-Institution.create(name: "Hospital para niños v5", short_description: "A short description", description: "A very loooooooong description.", lat: -32.1231, lng: -24.2312, address: "Avellaneda 9191, Buenos Aires, Argentina")
+Institution.create(name: 'Hospital de Pedro1', email: 'pedro1@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -32.58121, lng: -55.42433)
+Institution.create(name: 'Hospital de Pedro2', email: 'pedro2@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -34.58121, lng: -58.42433)
+Institution.create(name: 'Hospital de Pedro3', email: 'pedro3@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -33.58121, lng: -56.42433)
+Institution.create(name: 'Hospital de Pedro4', email: 'pedro4@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -34.58121, lng: -57.42433)
+Institution.create(name: 'Hospital de Pedro5', email: 'pedro5@pepito.com', address: 'Sirenas v2.0 dirección 4.5', lat: -36.58121, lng: -54.42433)
 
-20.times { Petition.create(blood: Blood.all[rand(7)+1], amount: rand(20)+1, institution: Institution.all[rand(4)+1], deadline: DateTime.now + rand(10)) }
+23.times { Petition.create(blood: Blood.all[rand(7)+1], amount: rand(20)+1, institution: Institution.all[rand(4)+1], deadline: DateTime.now + rand(10), description: 'Increíble donación para saber a donde vas ping mostrar endpoint.') }

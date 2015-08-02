@@ -1,9 +1,5 @@
 class InstitutionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :longDescription, :address, :location
-
-  def longDescription
-    object.description
-  end
+  attributes :id, :name, :address, :location, :email
 
   def location
     {

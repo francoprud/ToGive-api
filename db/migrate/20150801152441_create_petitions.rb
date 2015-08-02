@@ -3,6 +3,7 @@ class CreatePetitions < ActiveRecord::Migration
     create_table :petitions do |t|
       t.references :blood
       t.integer :amount
+      t.text :description
 
       t.timestamps null: false
     end

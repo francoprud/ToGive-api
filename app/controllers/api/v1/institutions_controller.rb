@@ -23,8 +23,7 @@ module Api
       private
 
       def institution_params
-        params.require(:institution).permit(:name,
-                                            :description, :lng, :lat, :address)
+        params.require(:institution).permit(:name, :lng, :lat, :address, :email)
       end
     end
   end

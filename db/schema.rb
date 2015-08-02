@@ -25,10 +25,9 @@ ActiveRecord::Schema.define(version: 20150802040927) do
 
   create_table "institutions", force: :cascade do |t|
     t.string   "name"
-    t.string   "short_description"
-    t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float    "lat"
     t.float    "lng"
     t.string   "address"
@@ -37,11 +36,12 @@ ActiveRecord::Schema.define(version: 20150802040927) do
   create_table "petitions", force: :cascade do |t|
     t.integer  "blood_id"
     t.integer  "amount"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.text     "description"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "institution_id"
     t.datetime "deadline"
-    t.integer  "donations"
+    t.integer  "donations",      default: 0
   end
 
 end

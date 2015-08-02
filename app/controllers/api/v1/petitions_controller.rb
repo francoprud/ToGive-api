@@ -48,7 +48,7 @@ module Api
       private
 
       def petition_params
-        params.require(:petition).permit(:amount, :blood_id, :deadline, :institution_id)
+        params.require(:petition).permit(:amount, :blood_id, :deadline, :institution_id, :description)
       end
     end
   end

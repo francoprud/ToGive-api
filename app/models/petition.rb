@@ -2,7 +2,7 @@ class Petition < ActiveRecord::Base
   belongs_to :blood
   belongs_to :institution
 
-  validates :amount, :institution, :blood, presence: true
+  validates :amount, :institution, :blood, :description, presence: true
 
   scope :not_expired, -> {
     where("deadline >= ?", Time.now)
