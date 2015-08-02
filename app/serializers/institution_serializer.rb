@@ -1,5 +1,5 @@
 class InstitutionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :longDescription, :shortDescription
+  attributes :id, :name, :longDescription, :shortDescription, :address, :location
 
   def shortDescription
     object.short_description
@@ -7,5 +7,12 @@ class InstitutionSerializer < ActiveModel::Serializer
 
   def longDescription
     object.description
+  end
+
+  def location
+    {
+      latitude: object.lat,
+      longitude: object.lng
+    }
   end
 end
