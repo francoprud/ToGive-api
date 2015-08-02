@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # devise_for :institutions
+  devise_for :institutions
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :petitions, only: [:index, :show, :create, :update, :destroy] do
