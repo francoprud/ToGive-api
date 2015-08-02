@@ -25,6 +25,16 @@ module Api
         end
       end
 
+      def confirm_donation
+        petition = Petition.find(params[:petition_id])
+
+        if petition.donate!
+          render json: petition, status: 200, location: [:api, :v1, petition]
+        else
+          render json: { errors: "it's not possible to donate" }, status: 400
+        end
+      end
+
       private
 
       def petition_params

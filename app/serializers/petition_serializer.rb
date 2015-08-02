@@ -1,5 +1,5 @@
 class PetitionSerializer < ActiveModel::Serializer
-  attributes :id, :amount, :deadline
+  attributes :id, :amount, :deadline, :donations
 
   has_one :blood
   has_one :institution
