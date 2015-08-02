@@ -9,7 +9,7 @@ module Api
       end
 
       def index
-        petitions = Petition.not_expired.sort_by_deadline.page(params[:page])
+        petitions = Petition.search(params).page(params[:page])
                                                          .per(params[:per_page] || PER_PAGE_DEFAULT)
         render json: petitions,
                meta: pagination(petitions, params[:per_page] || PER_PAGE_DEFAULT)
