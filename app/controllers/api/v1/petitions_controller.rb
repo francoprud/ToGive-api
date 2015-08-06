@@ -19,18 +19,14 @@ module Api
 
       def create
         petition = current_institution.petitions.build(petition_params)
-        Rails.logger.info petition
+
         if petition.present?
-           Rails.logger.info 'dentro del present'
           if petition.save
-            Rails.logger.info 'dentro del save'
             render json: petition, status: 201, location: [:api, :v1, petition]
           else
-             Rails.logger.info 'no se pudo hacer save'
             render json: { errors: petition.errors }, status: 400
           end
         else
-           Rails.logger.info 'no estuvo present'
           render json: { errors: 'the institution do not belong this petition'}, status: 400
         end
       end
